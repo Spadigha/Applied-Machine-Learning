@@ -28,3 +28,5 @@ To verify that the environment was removed, in your terminal window or an Anacon
 ```
 conda info --envs
 ```
+
+for more info: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
