@@ -8,3 +8,23 @@ conda activate myEnv
 conda install numpy jupyter notebook pandas
 pip install abc=x.y.z
 ```
+
+make exact clone of env
+```
+conda create --name myclone --clone myenv
+```
+
+To see if a specific package is installed in an environment, in your terminal window or an Anaconda Prompt, run:
+```
+conda list -n myenv scipy
+```
+
+To remove an environment, in your terminal window or an Anaconda Prompt, run:
+```
+conda remove --name myenv --all
+```
+
+To verify that the environment was removed, in your terminal window or an Anaconda Prompt, run:
+```
+conda info --envs
+```
