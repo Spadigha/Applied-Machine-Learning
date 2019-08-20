@@ -1,4 +1,6 @@
 
-numpy
+
 jupyter notebook
+numpy
+Matplotlib
 pandas
