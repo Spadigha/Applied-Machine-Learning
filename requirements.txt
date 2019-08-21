@@ -4,4 +4,3 @@ jupyter notebook
 numpy
 Matplotlib
 pandas
-dd
