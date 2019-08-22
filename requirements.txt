@@ -5,3 +5,4 @@ numpy
 Matplotlib
 pandas
 xlrd
+openpyxl
