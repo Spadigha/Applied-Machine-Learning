@@ -4,5 +4,9 @@ jupyter notebook
 numpy
 Matplotlib
 pandas
+
 xlrd
 openpyxl
+
+seaborn
+plotly
