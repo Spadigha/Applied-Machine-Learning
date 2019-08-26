@@ -2,7 +2,7 @@
 
 jupyter notebook
 numpy
-Matplotlib
+matplotlib
 pandas
 
 xlrd
