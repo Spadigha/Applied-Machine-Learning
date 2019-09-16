@@ -1,0 +1,13 @@
+
+[http://amin-ahmadi.com/cascade-trainer-gui/]
+
+install with def optins
+open and give path to your main-folder:
+		..
+		./p (positive images - greyscale better)
+		./n (negaitve images - twice numbr of p images)
+in train:
+	set stages=15 (avg. val) 
+	set common-> width, height = 32, 32
+
+start and after completion look for classifier/cascade.xml
