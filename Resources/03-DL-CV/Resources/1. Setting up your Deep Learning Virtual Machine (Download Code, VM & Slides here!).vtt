@@ -1,0 +1,490 @@
+WEBVTT
+
+00:00.550 --> 00:00.880
+All right.
+
+00:00.880 --> 00:05.500
+So welcome to chapter tree where we set up a planning development machine.
+
+00:05.500 --> 00:10.160
+So now that you've gone through the intro you're now ready to get started setting up your machine.
+
+00:10.240 --> 00:11.730
+So let's get to it.
+
+00:11.740 --> 00:17.380
+So now the first step in setting up a deepening virtual machine is you need to download Virtual Box
+
+00:17.440 --> 00:24.100
+Virtual Box is a software that allows us to actually start an entirely new operating system whether
+
+00:24.130 --> 00:30.460
+it be Linux Windows or Mac OS although it's not fully supported for Mac OS but you can actually run
+
+00:30.490 --> 00:33.500
+an entire new operating system with in a virtual box.
+
+00:33.510 --> 00:34.170
+It's super cool.
+
+00:34.160 --> 00:35.560
+It's called ritualize.
+
+00:35.800 --> 00:43.960
+And it is super fast on new use didn't experience any slowdown really and it is entirely useful for
+
+00:43.960 --> 00:49.580
+us to set up our deepening machine because deepening software on Windows is not well-supported.
+
+00:49.660 --> 00:55.450
+However on Linux or Ubuntu it is a very good environment for running on our software.
+
+00:55.780 --> 01:01.740
+So what you do now is you download either to Windows OS X versions according to what you're using.
+
+01:01.960 --> 01:03.480
+So I'm not going to be Windows.
+
+01:03.480 --> 01:05.020
+I've really done with it here.
+
+01:05.380 --> 01:13.390
+So now what you do as well is you download from the link in the resources file download the deepening
+
+01:13.420 --> 01:15.100
+C-v open to that.
+
+01:15.180 --> 01:15.950
+File.
+
+01:16.210 --> 01:21.450
+This is your wish your machine that we're going to set up so that you have those two files.
+
+01:21.760 --> 01:23.840
+Here we are ready to get started.
+
+01:23.890 --> 01:27.250
+So now we have to firstly install virtual box.
+
+01:27.250 --> 01:30.050
+Now I know this file is quite huge just nine gigs.
+
+01:30.220 --> 01:35.470
+So you probably would have wanted to leave this overnight if you have a relatively slow broadband connection.
+
+01:35.470 --> 01:38.350
+However if you're a fast connection should take about an hour.
+
+01:38.790 --> 01:40.870
+Either way let's install virtual box
+
+01:43.800 --> 01:46.150
+so you get to run standard procedure.
+
+01:49.150 --> 01:52.600
+I'm not going to do the Mac install video because I don't have access to a Mac.
+
+01:52.690 --> 01:55.590
+But as soon as I do upload a video for you Mac users.
+
+01:55.720 --> 02:00.340
+However it's a standard installation procedure and all the settings are the same but generally for Mac
+
+02:00.400 --> 02:01.370
+and Windows.
+
+02:01.420 --> 02:04.150
+So this should relate to you as well.
+
+02:04.810 --> 02:06.810
+So you leave all the details here as well.
+
+02:06.840 --> 02:08.480
+It's best next.
+
+02:08.500 --> 02:17.590
+Next again you can optionally can do this if you want find this is fine press yes install.
+
+02:17.610 --> 02:18.150
+Do we go
+
+02:23.490 --> 02:23.840
+OK.
+
+02:23.870 --> 02:27.600
+So we've finished installation process and now you can start.
+
+02:27.650 --> 02:31.130
+You'll get your rocks off and I'll show you how to get everything set up.
+
+02:31.130 --> 02:31.470
+All right.
+
+02:31.470 --> 02:37.550
+So here we are on a virtual box manage your software so please ignore these two virtual machines I have
+
+02:37.550 --> 02:37.820
+a break.
+
+02:37.820 --> 02:42.930
+No yours is going to be blank right now since semanticists and you're going to be using this.
+
+02:42.950 --> 02:46.730
+So go to file and import appliance.
+
+02:46.940 --> 02:52.470
+And now go to the directory where you downloaded your virtual box start of the file.
+
+02:52.500 --> 02:53.330
+All right.
+
+02:53.460 --> 02:57.260
+So go to open and press next.
+
+02:57.260 --> 03:03.070
+Now I have it set to my virtual machine to use force use and use it to exit from.
+
+03:03.170 --> 03:05.370
+That is basically of course CPI.
+
+03:05.390 --> 03:10.550
+So I have it logical cause and I have and get 16 gig of ram in my system.
+
+03:10.550 --> 03:17.110
+So you're going to want to put it to at least half of what your host system can support.
+
+03:17.120 --> 03:20.690
+So if you have a dual call you can use two here.
+
+03:20.750 --> 03:24.330
+And if you have it is a Frahm you can use for gigs here.
+
+03:24.680 --> 03:27.960
+So we can make those adjustments and leave everything else the same.
+
+03:27.960 --> 03:32.830
+It's fine and good to import.
+
+03:33.020 --> 03:37.840
+And now this time is basically a lie it's going to take maybe about 10 20 minutes.
+
+03:37.840 --> 03:42.820
+So I'm going to pause the video here and when it's done we can start off with your machine and I'll
+
+03:42.820 --> 03:43.780
+show you how to use it.
+
+03:43.780 --> 03:47.580
+It's quite easy and we'll get done it and set up whole code.
+
+03:47.710 --> 03:48.960
+And that should be at
+
+03:51.780 --> 03:52.140
+OK.
+
+03:52.160 --> 03:53.000
+So that's it.
+
+03:53.000 --> 03:56.430
+We have just installed virtual machine.
+
+03:56.460 --> 04:00.050
+So now this is the new one here because I already have it working here.
+
+04:00.050 --> 04:02.960
+It came up as under school one knows is going to be this one.
+
+04:02.960 --> 04:04.980
+So either way it's the same machine.
+
+04:05.000 --> 04:09.230
+So let's just start this one fresh one I just installed.
+
+04:10.160 --> 04:21.270
+It takes about maybe tity seconds to boot up at least on my system.
+
+04:21.430 --> 04:24.340
+This is all normal by the way it's a pudding's screenful and Ventoux
+
+04:33.510 --> 04:34.120
+There we go.
+
+04:34.320 --> 04:35.650
+So we're loaded.
+
+04:35.880 --> 04:36.770
+Oh yes.
+
+04:36.780 --> 04:37.670
+This is pretty cool.
+
+04:37.670 --> 04:41.470
+So now you're actually running Ubuntu within Windows.
+
+04:41.850 --> 04:45.660
+And it's because it's using of which lies those features on your CD.
+
+04:46.020 --> 04:47.430
+It's going to run pretty quick.
+
+04:47.430 --> 04:49.460
+You're not going to notice much of a slowdown.
+
+04:49.470 --> 04:52.110
+So what I want to do is two things I want to show you.
+
+04:52.110 --> 04:55.580
+First of all your password for your virtual machine.
+
+04:55.800 --> 05:01.950
+Whenever you do sudo or any sort of flick system settings we change users and stuff the password for
+
+05:01.950 --> 05:05.960
+this user is 1 1 2 2 treat 3 4 4.
+
+05:06.180 --> 05:11.820
+It's going to be in the touch resources of your file and I'm going to display it on screen as well.
+
+05:11.940 --> 05:13.260
+So you don't forget it.
+
+05:13.290 --> 05:17.130
+So let's just see something here.
+
+05:17.130 --> 05:23.090
+So what I want to show you is that we have our old machine this is all file structure here.
+
+05:23.160 --> 05:25.640
+So this is a home directory right now.
+
+05:25.890 --> 05:28.690
+We have a bunch of things installed here right now.
+
+05:29.190 --> 05:33.380
+Basically this these things are a lot of deepening libraries.
+
+05:33.420 --> 05:38.550
+And I have some instructions as well you don't need to use these right now but what I want to show you
+
+05:38.550 --> 05:42.310
+is to basically set up your code and train models.
+
+05:42.330 --> 05:42.880
+OK.
+
+05:43.170 --> 05:44.300
+So stay tuned.
+
+05:44.650 --> 05:44.950
+OK.
+
+05:44.970 --> 05:53.210
+So what I'm going to need you to do is open Firefox that's a web browser on the buntu by default and
+
+05:53.210 --> 06:01.800
+what to do is when Firefox boots up I want you to go to your dummy account when you come and with the
+
+06:01.840 --> 06:07.460
+attached resources to this lesson which is also the deep linning code library.
+
+06:07.540 --> 06:11.950
+Let's just wait for it to boot up here I think my system has a lot of stuff running right now.
+
+06:12.110 --> 06:14.820
+But either way just go to your dummy dot com
+
+06:17.690 --> 06:19.650
+and is like Friday so we're on right now.
+
+06:19.650 --> 06:20.750
+Nice.
+
+06:20.780 --> 06:24.290
+So what to do is basically log into your account.
+
+06:24.470 --> 06:25.840
+However you've done it before.
+
+06:25.880 --> 06:32.300
+Whichever method you use and download the resources for this for the course that's the code and Treen
+
+06:32.300 --> 06:38.270
+model is zip file and download it and it's going to save in your Downloads folder right here.
+
+06:38.270 --> 06:39.470
+This is the same file.
+
+06:40.010 --> 06:42.620
+And this is a file once you extract.
+
+06:42.740 --> 06:50.720
+So double click and this file is going to take a bit to 10 seconds or so to open it's a big file.
+
+06:50.750 --> 06:53.990
+So it's reasonable.
+
+06:54.180 --> 07:00.120
+And this file here I want you to extract it to your home directory here.
+
+07:00.660 --> 07:02.370
+So let's go ahead and do that
+
+07:05.210 --> 07:08.020
+let's just reduce this clutter in the background.
+
+07:09.010 --> 07:13.630
+And this takes about a minute actually less much less 10 minutes to extract
+
+07:22.690 --> 07:31.350
+and when it's done you will see all the code that we need for this course is in a convenient location.
+
+07:31.480 --> 07:33.130
+So just quit this
+
+07:35.680 --> 07:36.270
+close
+
+07:39.700 --> 07:40.850
+and doing something.
+
+07:40.880 --> 07:42.750
+But that's fine.
+
+07:42.760 --> 07:48.510
+What I want to do is go to home and now you see just Eritrea de-planing CV and it is also a shortcut
+
+07:48.630 --> 07:50.530
+to do the same directory.
+
+07:50.850 --> 07:52.770
+And let's go back to it here.
+
+07:52.830 --> 07:55.620
+This is decomp.
+
+07:55.620 --> 08:00.020
+The contents of this are actually sortable and list here.
+
+08:00.030 --> 08:05.360
+These are this is all the code entery Mullins is going to need the discourse and it's conveniently extracted
+
+08:05.360 --> 08:07.210
+now within your virtual machine.
+
+08:07.220 --> 08:09.070
+So now let's go back to Python.
+
+08:09.080 --> 08:10.460
+Sorry Otunnu.
+
+08:10.880 --> 08:13.150
+So let's play this.
+
+08:13.160 --> 08:16.580
+So what if we wanted to test our code.
+
+08:16.880 --> 08:26.090
+So what do you do you go to you press source type source activate C-v that's what the plumbing environment
+
+08:26.090 --> 08:27.100
+for computer vision.
+
+08:27.440 --> 08:28.680
+And it's instantly done.
+
+08:28.730 --> 08:30.860
+And now you type python.
+
+08:31.420 --> 08:34.890
+Notebook and magic happens.
+
+08:34.890 --> 08:39.390
+What this does it starts a local server that hosts your it on the browser.
+
+08:39.900 --> 08:45.240
+So now this is where we run all our Python code and I'm going is going to do a brief tutorial on that
+
+08:45.260 --> 08:45.870
+here.
+
+08:46.130 --> 08:51.100
+So now just good de-planing CV that's just good chapter for getting started.
+
+08:51.450 --> 08:54.990
+And let's run our Actually let's run our life sketching
+
+08:59.390 --> 09:03.020
+because this loads much quicker and we don't need any files for this.
+
+09:03.020 --> 09:06.870
+So let's run this block of code.
+
+09:07.070 --> 09:11.450
+I put on the books are basically just blocks of code we can run and all the variables everything is
+
+09:11.450 --> 09:13.460
+stored inside of it.
+
+09:13.910 --> 09:19.400
+So you press shift and still control and to shift and to run it here.
+
+09:19.430 --> 09:25.820
+This takes about maybe five seconds or less every print division up and see that we're we're using 3.4.
+
+09:26.150 --> 09:29.440
+If you press Allt and you get a new line below.
+
+09:29.480 --> 09:34.690
+So that's sometimes convenient sometimes not shift into just runs it with our precinct producing this
+
+09:34.700 --> 09:36.020
+new cell here.
+
+09:36.170 --> 09:38.890
+And to delete that espress cut.
+
+09:38.960 --> 09:46.460
+So now let's run our sketch now before we do this we're going to have to go with devices here webcams
+
+09:46.490 --> 09:48.930
+and take off integrated webcam.
+
+09:49.280 --> 09:54.490
+And now let's press shift into to run this block of gold.
+
+09:54.530 --> 09:55.050
+There we go.
+
+09:55.130 --> 09:59.320
+So this is our browser all lives this is me chatting here.
+
+09:59.540 --> 10:00.590
+This is my microphone.
+
+10:00.590 --> 10:01.910
+The door is in the back.
+
+10:01.910 --> 10:04.450
+So this is pretty cool isn't it.
+
+10:04.850 --> 10:08.480
+So that's close us and that is it.
+
+10:08.480 --> 10:10.270
+So we have all of the code here.
+
+10:10.310 --> 10:16.020
+Everything is preinstalled all the terror Karris tends to flow a bunch of supporting libraries.
+
+10:16.080 --> 10:21.410
+The lib is installed a lot of things are stored Actually it probably takes about an hour to do even
+
+10:21.600 --> 10:23.400
+with some sometimes to install everything.
+
+10:23.750 --> 10:24.350
+So that's it.
+
+10:24.350 --> 10:27.930
+You have your full video machine running here.
