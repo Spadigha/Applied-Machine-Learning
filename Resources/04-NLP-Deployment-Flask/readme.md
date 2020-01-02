@@ -52,9 +52,9 @@ Jenkins is an open source Continous Integration platform - Crutial tool in DevOp
     - Run `docker images` to see availabe images
     - You can pull (download) any image you want from dockerhub using command `docker pull`. Just search it in hub.docker.com. (Use CE - Community Edition)
     
-```
+    ```
     docker pull gitlab/gitlab-ce
-```
+    ```
 
     - Run the `GitLab Image` using docker
     ```
