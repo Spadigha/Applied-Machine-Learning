@@ -15,7 +15,7 @@ import re # Regex to exploit patterns in strings
 import string
 
 from sklearn.feature_extraction.text import CountVectorizer
-# You may also use Tfidf
+# You may also use Tfidf instead.
 from sklearn.linear_model import LogisticRegression # for prediction
 
 
@@ -34,10 +34,11 @@ def remove_pattern(input_text, pattern):
         #        <what-to-replace-with-in-main-string>,
         #        <main-string>)
         # ---------------------------------------------------------
-        # Note: `i` will be replaced in <main-string> in-place.
+        # Note: `i` will not be replaced in <main-string> in-place.
         # Replaced string is returned by re.sub() which is stored
-        # in `input_txt` simply without any use.
-        input_txt = re.sub(i, "", input_text)
+        # in `input_text` i.e original text is overwritten with
+        # the replaced one
+        input_text = re.sub(i, "", input_text)
     
     return input_text # return replaced string.
     
@@ -57,15 +58,71 @@ app = Flask(__name__)
 # Load data
 data = pd.read_csv("../data/sentiment.tsv",sep = '\t')
 
+
 # -----------------------------------------------------
-# -----------------CLEANING DATA-----------------------
+# -----------------PREPROCESSING DATA-----------------------
 # -----------------------------------------------------
 
-# Libraries
+# general nlp ibraries
 import numpy as np
 import pandas as pd
 import re
 import matplotlib.pyplot as plt
+import seaborn as sns
+import string
+import nltk
+# sklearn librearies
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import f1_score
+
+import warnings
+warnings.filterwarnings("ignore", category = FutureWarning)
+warnings.filterwarnings("ignore", category = DeprecationWarning)
+
+
+# import datasets
+data = pd.read_csv("../data/sentiment.tsv",sep = '\t')
+# No col names are present so, give your own
+data.columns = ["label", "body_text"]
+
+# print(data.head())
+# output:
+"""
+  label                                          body_text
+0   pos  having a vodka tonic and looking forward to go...
+1   pos  @ddlovatofans1neg1 Could you follow me please....
+2   pos  @jordanknight for once.................. PLEAS...
+3   neg  Had a dream about a walk in fast food resturau...
+4   pos  @TroyBrownBBNews Yes... For a &quot;friend&quot;
+"""
+
+# label col must be one hot encoded
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+
+data['label'] = le.fit_transform(data['label'])
+
+# print(data.head())
+# output:
+"""
+   label                                          body_text
+0      1  having a vodka tonic and looking forward to go...
+1      1  @ddlovatofans1neg1 Could you follow me please....
+2      1  @jordanknight for once.................. PLEAS...
+3      0  Had a dream about a walk in fast food resturau...
+4      1  @TroyBrownBBNews Yes... For a &quot;friend&quot;
+"""
+
+# clean data
+# -----------
+
+def remove_pattern(input_text, pattern):
+    r = re.findall(pattern, input_text)
+    for i in r:
+        input_text = re.sub(i, "", input_text)
+    return input_text
+    
+# remove twitter handles using regex
 
 
 
