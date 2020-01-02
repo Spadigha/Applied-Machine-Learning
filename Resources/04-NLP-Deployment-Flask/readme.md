@@ -21,4 +21,4 @@ deactivate
 
 - For deployment we have to use CI CD Pipeline
 - We will use `Flask`, `Docker` and `gitlab`
-[github-vs-gitlab](./comparison.jpg)
+![github-vs-gitlab](./comparison.jpg)
