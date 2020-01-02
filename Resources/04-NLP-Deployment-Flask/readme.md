@@ -55,30 +55,38 @@ Jenkins is an open source Continous Integration platform - Crutial tool in DevOp
 ```
     docker pull gitlab/gitlab-ce
 ```
+
     - Run the `GitLab Image` using docker
     ```
     docker run -d -p 443:443 -p 80:80 -p 22:22 --name gitlab1 gitlab/gitlab-ce
     ```
+    
         `-d` : Run in background
+        
         `-p host-port:docker-image-port` : Port configuration. GitLab has `three ports` we need to open - `443`, `80` (UI runs here), `22` (For all 3 ports).
+        
         `--name name-of-container name-of-image` : `Name-of-container` can be anything you want.
     
     - Check running containers:
+    
     ```
     docker ps
     ```
     
     - Check history: List all containers (and the images it was based on) that were run previously
+    
     ```
     docker ps -a
     ```
     
     - Stop the running container. You can find `<container-id>` from `docker ps` or `docker ps -a`
+    
     ```
     docker stop <container-id>
     ```
 
     - Start a container. You can find `<container-id>` from `docker ps` or `docker ps -a`. If not found in both commands, run using pulled gitlab image usng `docker run -d -p . . . . `
+    
     ```
     docker start <container-id>
     ```
