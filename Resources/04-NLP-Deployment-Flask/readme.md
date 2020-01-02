@@ -48,6 +48,8 @@ Jenkins is an open source Continous Integration platform - Crutial tool in DevOp
     
     **3. GitLab Inastallation**
     
+    GitLab is for hosting our code and it will give all CI CD tools like intergrating it with docker, jenkins, or any deployment tool like kubernetes.
+    
     - We are going to install `GitLab` on top of docker itself.
     - Run `docker images` to see availabe images
     - You can pull (download) any image you want from dockerhub using command `docker pull`. Just search it in hub.docker.com. (Use CE - Community Edition)
@@ -95,5 +97,49 @@ Jenkins is an open source Continous Integration platform - Crutial tool in DevOp
     
     - After running the container or starting the container, goto `localhost:80` (where UI is hosted.) It may show error `502, Taking too long to respond`, but eventually it loads when you reload it or all by itself. Set simple 8 characters password like `adminadmin` and then register.
     
+    
+# Jenkins with Flask
+ 
+ We will create a pipeline to monitor our build and if there is any problem, that pipeline will be broken. In this part, we will create our pipeline.
+ 
+ Flask is a lightweight web development micro web service framework. 
+    - Easy to make APIs
+    - WSGI Connector: Helps us connect our applications with client.
+    - Easy, Intutive and pythonic
 
-# Flask
+**Simle Example**
+
+- Install Flask using `pip` in `venv`
+```
+pip install flask
+```
+
+- Import and create object
+```
+    from flask import Flask # import class
+    app = Flask(__name__) # create object. 
+                          # We will pass `__name__` of the `main` method
+                          # at the end of the code.
+    
+    # create route (API)
+    @app.route('/')
+    def index():
+        return 'Hello Flask!'
+    
+    
+    # main method
+    if __name__ == '__main__':
+        app.run(port = 8090, debug = True) # alter port if necessary
+    
+```
+
+Run the python file to launch the webapp.
+
+
+**As everything is set now, we can happily code and deploy!!**
+
+
+# Sentiment Analysis
+
+
+
