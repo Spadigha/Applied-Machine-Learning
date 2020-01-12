@@ -98,7 +98,7 @@ Jenkins is an open source Continous Integration platform - Crutial tool in DevOp
     - After running the container or starting the container, goto `localhost:80` (where UI is hosted.) It may show error `502, Taking too long to respond`, but eventually it loads when you reload it or all by itself. Set simple 8 characters password like `adminadmin` and then register.
     
     
-# Jenkins with Flask
+# Jenkins with Flask - Introduction
  
  We will create a pipeline to monitor our build and if there is any problem, that pipeline will be broken. In this part, we will create our pipeline.
  
@@ -141,5 +141,41 @@ Run the python file to launch the webapp.
 
 # Sentiment Analysis
 
+See `FlaskApp/twitter-data-preproceesing.ipynb` file
 
+# Flask
 
+- Create **two** folders in main directory of flask app: 
+
+    - `static` folder - Contains `.css` files and images.
+    - `template` folder - default dir where `.html` file templates will be searched from.
+
+- **BASIC FLOW**
+
+    - `analysis.ipynb`: Do your data analysis in jupyter notebook
+    
+    - `model.py`: Clean the code from .ipynb file and use here
+        - Create `model` using this script
+        - Save `model` (and `mode._vectorizer`) using Pickle
+        - Test prediction on single "String" entry
+
+    - Templates
+        - `home.html`: needs to have a form 
+        ```
+        <form action="{{ url_for('predict')}}" method="POST">
+        ```
+        when clicked on submit button, the form will be redirected to `action` link i.e `predict` route.
+        
+        -  `result.html`: 
+        ```
+        {% if prediction == 1%}
+	    <h2 style="color:red;">It's a Negative Comment</h2>
+	    {% elif prediction == 0%}
+	    <h2 style="color:blue;">It's Positive Comment</h2>
+	    {% endif %}
+        ```
+        the value for `prediction` is supplied by flask `return render_template('result.html', prediction = my_pred)` in `predict` route
+    
+    - `app.py`: It has two routes and helper functions
+        - `home` route: redirects to `home.html` from where, when clicked on `submit`, we are redirected to `predict` route which directs to `output.html`
+        - `prediction` route: `my_pred` is predicted based on input form `message` and is sent to `output.html` through `prediction = my_pred`.
