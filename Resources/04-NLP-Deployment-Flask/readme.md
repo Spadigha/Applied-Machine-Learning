@@ -286,7 +286,7 @@ CMD ["app.py"]
 
 
 
-# ======================================================
+# =================[TERMINAL-COMMANDS]==============================
 # 1. Create image:
 #   docker build -t flask-nlp-basic-image:v1 .
 # 2. Run container based on image: <outside-port>:<container port>
