@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import pickle
+import pickle5 as pickle
 import numpy as np
 import pandas as pd
 import string
@@ -87,4 +87,8 @@ def predict():
 
 
 if __name__ == "__main__" :
-    app.run(debug=True) 
+    # mention host so that docker can expose it correctly.
+    # If not mentioned, docker will run this app in 
+    # container's localhost which wont be accessible 
+    # outside. 
+    app.run(host='0.0.0.0', port=4000) 

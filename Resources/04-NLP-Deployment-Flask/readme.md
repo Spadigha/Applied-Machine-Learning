@@ -93,7 +93,7 @@ Jenkins is an open source Continous Integration platform - Crutial tool in DevOp
     docker start <container-id>
     ```
 
-    - See logs: `docker logs
+    - See logs: `docker logs`
     
     - After running the container or starting the container, goto `localhost:80` (where UI is hosted.) It may show error `502, Taking too long to respond`, but eventually it loads when you reload it or all by itself. Set simple 8 characters password like `adminadmin` and then register.
     
@@ -179,3 +179,124 @@ See `FlaskApp/twitter-data-preproceesing.ipynb` file
     - `app.py`: It has two routes and helper functions
         - `home` route: redirects to `home.html` from where, when clicked on `submit`, we are redirected to `predict` route which directs to `output.html`
         - `prediction` route: `my_pred` is predicted based on input form `message` and is sent to `output.html` through `prediction = my_pred`.
+
+# App Ready. Deployment Starts
+
+**Base Image**
+It is the operating system on which we will run our `docker container`. It needs base image as well which is specified by `FROM` in Dockerfile. It is created with the help of `Dockerfile` which contains all the information how our deployed enviroment will look like inside `container` when used on top of *this* image.
+
+**Container**
+It is the environment in which our `app` will be running. It is based on docker image (which was used to create the container using `docker run ...` command)
+
+*Note: The docker container will exit when it has nothing to do. If you want to enter into the container terminal, you have to write a script to make it wait.*
+
+`wait.sh`:
+```
+while true; do sleep 1000; done
+```
+`Dockerfile`
+```
+.
+.
+.
+
+CMD ["chmod", "+x", "wait.sh"]
+CMD ["sh", "wait.sh"]
+```
+**Difference between RUN, CMD and ENTRYPOINT:**
+
+- **RUN** : These commands are run only(once) when image is built from Dockerfile `docker build -t <image-name> .`.
+
+- **CMD** : These commands are run everytime when docker container is run or restarted. You can do anything with it's help everytime containers starts or restarts. (like executing `wait.sh` script to enter container terminal)
+
+- **ENTRYPOINT** :  
+This syntax is used in Dockerfile to fire up flask app
+```
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+```
+
+
+## Procedure 
+
+- We need a base image from docker hub on top of which we will create our own image. I am using `publysher/alpine-numpy:1.14.0-python3.6-alpine3.7`
+
+- Create image based on `./Dockerfile`:
+
+Goto your working directory and create `Dockerfile` in main folder
+```
+FROM publysher/alpine-numpy:1.14.0-python3.6-alpine3.7
+
+# --------[ alpine-3.7 and python-3.6.5 dev tools installation ]-------- 
+# multiple pip install lines to avoid 
+# pkg dependancy issues
+# scipy==1.0.0 for pickle loading issues
+# for pickle issues, build .pkl file wih the same sklearn version
+# you will be using to load it
+# ALWAYS DO PIP INSTALLS IN IMAGE `RUN`
+# NOT IN CONTAINERS
+RUN apk --no-cache add lapack libstdc++\
+    && apk --no-cache add --virtual .builddeps g++ gcc gfortran musl-dev lapack-dev\
+    && pip install cython \
+    && pip install scipy==1.0.0 \
+    && pip install scikit-learn==0.21.3 \
+    && pip install pandas flask nltk \
+    && pip install pickle5 \
+    && apk del .builddeps \
+    && rm -rf /root/.cache
+
+# ---------[ dev tools installation comlpete ]-------------------------
+
+# creates `/app` folder inside container's root that will be
+# used as our working dir inside the container
+WORKDIR /app
+
+# copies all our sourcecode from current dir (.) to
+# the container.
+COPY . /app
+
+# try this. But will take time as it has to 
+# build from spurce in alpine (unlike ubuntu). 
+# There might aswell be
+# version match issues. idk.
+#RUN pip3 install -r requirements.txt
+
+# opens up port 4000 to the world outside container
+EXPOSE 4000
+
+# build `model.pkl` with scipy and scikit-learn==0.21.3
+# installed so that while loading it with pickle,
+# there aren't any issues
+RUN python model.py
+
+# ----------------[ use as it is ]----------------------
+# defined for running flask
+# Use this only. Don't use `wait.sh` with this
+# contents of ./wait.sh : `while true; do sleep 1000; done`
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+# ------------------------------------------------------
+
+# Wait script which will help to get into container's 
+# bash. Un comment it ONLY if flask is not running or
+# docker is exiting. This makes container run so that we
+# can get into it (As we cannot enter exited container's bash) 
+#CMD ["chmod", "+x", "wait.sh"]
+#CMD ["sh", "wait.sh"]
+
+
+
+# ======================================================
+# 1. Create image:
+#   docker build -t flask-nlp-basic-image:v1 .
+# 2. Run container based on image: <outside-port>:<container port>
+#   docker run -p 5000:4000 -d --name flask-test-container flask-nlp-basic-image:v1
+# 3. make container wait so that we can enter it's terminal.
+#   Use it only if container is exiting or Flask app NOT runing
+#   CMD ["chmod", "+x", "wait.sh"]
+#   CMD ["sh", "wait.sh"]
+# 4. Enter into container:
+#   docker exec -it <container-id> /bin/sh
+
+```
+
