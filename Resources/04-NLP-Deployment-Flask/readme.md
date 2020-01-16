@@ -300,3 +300,115 @@ CMD ["app.py"]
 
 ```
 
+
+# CI-CD Pipeline - Jenkins configuration
+
+### **1. Push code to Gitlab & make Jenkins freestyle project.**
+
+**Push code to Gitlab**
+
+Gitlab provides all devops features. All enterprises are moving towards it. 
+
+It is an enterprise level complete DevOps application where a developer can push his code and maintainer can make changes to the deployed app based on pushes from developers. CI-CD pipelines are available, you can even integrate Gitlab with Kubernetes. 
+
+
+We will understand how end to end pipline works. End to end pipeline means getting the code, dockerizing it - build image and run container and then testing (We will do all this using **Jenkins** in gitlab)
+
+i. Start both Jenkins(from system) and Gitlab(from docker) - *see above docs to know how to start and configure them.*
+
+ii. Jenkins:
+
+- You should see `Welcome to Jenkins!` after logging in
+
+- Click on ⚙️ `Manage Jenkins`(on left side of windows) -> 🧩`Manage Plugins` -> (Click on) `Available` -> Search in the field on top right corner `Filter 🔍` : `gitlab` 
+
+    - If you already have the `"GitLab Plugin"` and `"Generic Webhook Trigger Plugin"` installed, it won't be shown in the `Available` List, change to `Installed` list (Just beside `Available`.)
+
+    - If you haven't installed it already, it should be visible in `Available` List... Select and Install `"GitLab Plugin"` and `"Generic Webhook Trigger Plugin"`
+    *After installing Plugins, restart your Jenkins.*
+
+iii. GitLab:
+
+- It may take some time to open, wait and then login 
+
+- Click on `Create a project`:
+    ```
+    Project name: my-nlp-model
+    Visibility Level: public (can integrate easily with Jenkins without password)
+    ```
+    - You will be redirected to `Command line instructions` page. Stay still don't click on anything.
+
+    - Before uploading your project folder (in your local file system), make sure it is not connected to any git repo by -
+
+    In terminal, `cd` into your project foder
+    ```
+    # check git version
+    >> git remote -v
+    
+    # if (fetch) and (push) urls exist, remove
+    # it using
+    >> sudo git remote rm origin
+
+    # check again (This time there should be nothing)
+    >> git remote -v
+    ``` 
+
+    - Link your project folder(in local system) to GitLab repo
+    ```
+    >> git init
+
+    >> sudo git remote add origin http://0.0.0.0/rakesh4real/my-nlp-model 
+
+    # check if linked or not.
+    # (fetch) and (push) links must appear
+    >> git remote -v
+    ```
+    *where, `http://0.0.0.0/rakesh4real/my-nlp-model` is from url field of your gitlab repo's `Command line instructions` page*
+
+    - add, commit, push (with sudo)
+    ```
+    >> sudo git add .
+    >> sudo git commit -m"initial commit"
+    >> sudo git push origin master
+    username: root
+    password: adminadmin
+    ```
+
+    - refresh your `Command line instructions` page in GitLab tab to see changes.
+
+- Steps to clone created repo and check how `Jenkins` is performing:
+    
+    - Goto, `Jenkins` browser UI and click on 📦`New Item` in left side.
+
+    - Fill `Enter an item name :` feild with `simple build` and select `Freestyle project` available below.
+    
+    *`Freestyle project`(comes by default) is not meant for complex tasks and creating pipelines. Used to only build our particular software application*
+
+    - Click `OK`
+
+    - You will land into another page. 
+    
+    - Goto `General` -> `Source Code Management` -> (Select) `Git`-> (copy and paste repo url from url field of GitLab UI) `Repository URL`.
+    (No need to fill any `Credentials` as this is a *public* repo)
+
+    - (skip all and go to bottom of `General`) To `Build` -> `Add build step` -> `Execute shell` -> `Command:` (fill the following -)
+    ```
+    whoami
+    ```
+
+    - Click on `Save`. You will be redirected to main page
+
+    - Again in left side, click 🕙`Build Now`. This will start build process which you can see in ☀️`Build History` displayed just below.
+
+    - Click on ☀️`Build History` -> `#1` -> `Console Output`
+
+    - You can see console output where project dir is fetched/cloned and our command `whoami` is run.
+
+    - If you goto  ⬆️`Back to Project` -> 📁`Workspace`, you can see your cloned repo.
+
+    - `Jenkins` is able to connect to our `Gitlab`!!
+
+- Before making a pipleline, create `Jenkinsfile` which stores instructions that needs to be run.
+
+
+**2. Making `Jenkinsfile` and creating Jenkins Pipeline**
