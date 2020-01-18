@@ -412,3 +412,78 @@ iii. GitLab:
 
 
 ### **2. Making `Jenkinsfile` and creating Jenkins Pipeline**
+
+For creating Jenkins pipeline, we need to create `Jenkinsfile`.
+
+- Goto your project directory and create `Jenkinsfile` in main dir:
+
+./Jenkinsflie: (write something and push. We will edit from GitLab itself)
+```
+pipeline
+```
+
+In terminal:
+```
+>> git stauts
+>> git add .
+>> sudo git commit -m"Jenkins file added"
+>> git push origin master
+
+(Note: `origin master`)
+```
+
+- Now check from GitLab UI inside repo and you will find `Jenkinsfile`. Edit it from here.
+
+    - For any given pipeline, there are different `stages`. Under `stages` we can declare n - number of stages
+
+    - Inside stages, there are `steps`. In `steps` you can write any command or shell-script you want using `sh ' '`.
+
+    ```
+    pipeline {
+        agent any
+            stages {
+                
+                stage('Clone Repository') {
+                    
+                    /* Clone the repo of our workspace as `scm` means source-code-management*/
+                    steps {
+                        checkout scm
+                    }
+                }
+                
+                stage('Build Image') {
+                    steps {
+                        sh 'sudo docker build -t my-nlp-model:v1 .'
+                    }
+                }
+                
+                stage('Run Image Inside Container') {
+                    steps {
+                        sh 'sudo docker run -d --name nlp-model1 my-nlp-model:v1'
+                    }
+                }
+                
+                /* Last Stage - Test whatever you want */
+                stage('Testing') {
+                    steps {
+                        echo 'Testing...'
+                    }
+                }
+            }
+    }
+    ```
+
+    - `Commit Changes` (update Jenkinsfile)
+
+**Create Pipeline Using Jenknsfile:**
+
+- Goto, `Jenkins` browser UI and click on 📦`New Item` in left side.
+
+- Fill `Enter an item name :` feild with `My NLP Pipeline` and select `🚰 Pipeline` available below (Not Freestyle prject which is default).
+
+- `OK`
+
+- (Don't put anything except this: )`General` -> `Pipeline` -> Definition: `Pipeline script from scm` -> SCM: `Git` -> Repositories: Repository URL: `http://0.0.0.0/rakesh4real/my-nlp-model` -> (no need to put any credentials as *public* repo) -> (It will automatically check) Script Path: `Jenkinfile` (in the end) -> `Apply` -> `Save`
+
+- You will be redirected to main page. Again in left side, click `🕙Build Now`. This will start build process which you can see in ☀️`Build History` displayed just below.
+
